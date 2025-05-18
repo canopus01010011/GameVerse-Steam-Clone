@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="672.0" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PurchaseHistoryController">
+   <children>
+      <Label fx:id="titleLabel" layoutX="20.0" layoutY="10.0" text="🎮 Your Purchase History" textFill="#66c0f4">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="582.0" layoutY="10.0" mnemonicParsing="false" onAction="#goBack" prefHeight="35.0" prefWidth="75.0" text="Back " />
+      <TableView fx:id="purchaseTable" layoutX="6.0" layoutY="62.0" prefHeight="402.0" prefWidth="660.0">
+         <columns>
+            <TableColumn fx:id="titleCol" prefWidth="210.0" text="Game Title" />
+            <TableColumn fx:id="priceCol" minWidth="0.0" prefWidth="110.0" text="Price" />
+            <TableColumn fx:id="dateCol" prefWidth="300.0" text="Purchase Date" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditSceneController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="177.0" layoutY="14.0" prefHeight="68.0" prefWidth="285.0" text="EDIT">
+         <font>
+            <Font name="System Italic" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="150.0" prefHeight="21.0" prefWidth="136.0" text="Fisrt Name" />
+      <Line endX="609.3333129882812" endY="78.16666412353516" startX="14.626225471496582" startY="78.16666412353516" />
+      <Label layoutX="26.0" layoutY="186.0" prefHeight="25.0" prefWidth="119.0" text="Last Name" />
+      <Label layoutX="26.0" layoutY="272.0" prefHeight="25.0" prefWidth="79.0" text="Gmail" />
+      <Label layoutX="26.0" layoutY="316.0" prefHeight="25.0" prefWidth="79.0" text="Phone number" />
+      <Label layoutX="26.0" layoutY="224.0" prefHeight="25.0" prefWidth="119.0" text="username" />
+      <Label layoutX="26.0" layoutY="360.0" prefHeight="25.0" prefWidth="92.0" text="New Password" />
+      <Button layoutX="225.0" layoutY="429.0" mnemonicParsing="false" onAction="#handleUpdateProfile" prefHeight="51.0" prefWidth="177.0" text="Submit" textFill="#230057">
+         <font>
+            <Font name="Microsoft YaHei" size="22.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="passwordField" layoutX="171.0" layoutY="360.0" prefHeight="25.0" prefWidth="418.0" />
+      <TextField fx:id="phonenumberFielde" layoutX="171.0" layoutY="316.0" prefHeight="25.0" prefWidth="418.0" />
+      <TextField fx:id="emailFielde" layoutX="171.0" layoutY="272.0" prefHeight="25.0" prefWidth="418.0" />
+      <TextField fx:id="usernameField" layoutX="171.0" layoutY="224.0" prefHeight="25.0" prefWidth="418.0" />
+      <TextField fx:id="lastnameF" layoutX="171.0" layoutY="186.0" prefHeight="25.0" prefWidth="418.0" />
+      <TextField fx:id="firstnameF" layoutX="171.0" layoutY="148.0" prefHeight="25.0" prefWidth="418.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="105.0" layoutY="78.0" prefHeight="51.0" prefWidth="418.0" text="Welcome to Steam , the paradise of Gammers">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <effect>
+            <Glow level="0.56" />
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>

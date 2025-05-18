@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1b2838;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DetailsController">
+
+    <ImageView fx:id="gameImage" fitHeight="270.0" fitWidth="350.0" layoutX="30.0" layoutY="30.0" />
+
+    <Label fx:id="titleLabel" layoutX="400.0" layoutY="30.0" text="Title" textFill="#66c0f4">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
+
+    <Text fx:id="descText" fill="white" layoutX="30.0" layoutY="330.0" text="Description goes here." wrappingWidth="740.0" />
+
+    <Label layoutX="30.0" layoutY="380.0" text="📅 Release Date:" textFill="#66c0f4" />
+    <Label fx:id="releaseLabel" layoutX="160.0" layoutY="380.0" textFill="white" />
+
+    <Label layoutX="30.0" layoutY="410.0" text="💰 Price:" textFill="#66c0f4" />
+    <Label fx:id="priceLabel" layoutX="160.0" layoutY="410.0" textFill="white" />
+
+    <Label layoutX="30.0" layoutY="440.0" text="🎮 Category:" textFill="#66c0f4" />
+    <Label fx:id="categoryLabel" layoutX="160.0" layoutY="440.0" textFill="white" />
+
+    <Label layoutX="30.0" layoutY="470.0" text="⭐ Rating:" textFill="#66c0f4" />
+    <Label fx:id="ratingLabel" layoutX="160.0" layoutY="470.0" textFill="white" />
+
+    <Label layoutX="30.0" layoutY="500.0" text="🖥️ Requirements:" textFill="#66c0f4" />
+    <Text fx:id="requirementsText" fill="white" layoutX="160.0" layoutY="513.0" wrappingWidth="600.0" />
+
+    <Button fx:id="backButton" layoutX="680.0" layoutY="550.0" onAction="#goBack" style="-fx-background-color: #66c0f4; -fx-text-fill: #1b2838;" text="Back" />
+
+</AnchorPane>

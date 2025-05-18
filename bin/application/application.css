@@ -1,0 +1,184 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.root{
+    -fx-background-color: #1b2838;
+}
+.label {
+    -fx-font-family: "Arial";
+    -fx-text-fill: white;
+}
+#label1{
+	-fx-background-color: #2a475e;
+    -fx-text-fill: white;
+    -fx-border-color: #66c0f4;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+    
+	}
+.button{
+  -fx-background-color: #1b2838;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-border-color: #66c0f4;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 5, 0, 0, 2);
+    -fx-transition: 0.3s;
+    }
+    .button:hover {
+    -fx-background-color: #2a475e; 
+    -fx-border-color: #ffffff;
+}
+.button:pressed {
+    -fx-background-color: #66c0f4;
+    -fx-text-fill: #1b2838;
+    -fx-border-color: white;
+}
+
+.text-field, .password-field {
+    -fx-background-color: #2a475e;
+    -fx-text-fill: white;
+    -fx-border-color: #66c0f4;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+}
+.check-box {
+    -fx-text-fill: white;
+}
+.check-box .box {
+    -fx-background-color: #2a475e;
+    -fx-border-color: #66c0f4;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+.list-view {
+    -fx-background-color: #2a475e;
+    -fx-text-fill: white;
+}
+
+
+#Deleteb {
+    -fx-background-color: #a83232; /* deep red */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-border-color: #ff4d4d;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 0, 0, 0.3), 5, 0, 0, 2);
+    -fx-transition: 0.3s;
+}
+
+#Deleteb:hover {
+    -fx-background-color: #ff4d4d;
+    -fx-text-fill: #1b2838;
+    -fx-border-color: white;
+}
+
+#Deleteb:pressed {
+    -fx-background-color: #ff8080;
+    -fx-text-fill: #1b2838;
+    -fx-border-color: white;
+}
+
+#titleLabel {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #66c0f4;
+}
+
+.table-view {
+    -fx-background-color: #2a475e;
+    -fx-border-color: #66c0f4;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 8, 0, 0, 4);
+    -fx-padding: 10;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #1b2838;
+    -fx-border-color: #66c0f4;
+    -fx-border-width: 0 0 2px 0;
+}
+
+.table-view .column-header {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+     -fx-text-fill: #66c0f4;
+         -fx-background-color: #1b2838;
+     
+}
+
+.table-row-cell {
+    -fx-cell-size: 40px;
+    -fx-padding: 5px;
+}
+
+.table-row-cell:filled:selected {
+    -fx-background-color: #66c0f4;
+    -fx-text-fill: #1b2838;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #365069;
+    -fx-text-fill: white;
+}
+
+.date-picker {
+    -fx-background-color: #2a475e;
+    -fx-text-fill: white;
+    -fx-border-color: #66c0f4;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.date-picker .text-field {
+    -fx-text-fill: white;
+    -fx-background-color: #2a475e;
+    -fx-border-color: #66c0f4;
+}
+
+.date-picker-popup {
+    -fx-background-color: #2a475e;
+}
+
+.date-picker-popup .calendar-grid {
+    -fx-background-color: #2a475e;
+}
+
+.date-picker-popup .day-cell {
+    -fx-background-color: #2a475e;
+    -fx-text-fill: white;
+}
+
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: #365069;
+}
+
+.date-picker-popup .day-cell:selected {
+    -fx-background-color: #66c0f4;
+    -fx-text-fill: #1b2838;
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #1b2838;
+    -fx-text-fill: #66c0f4;
+}
+
+.date-picker-popup .spinner .text-field {
+    -fx-background-color: #2a475e;
+    -fx-text-fill: white;
+}
+
+
