@@ -1,7 +1,3 @@
-# Copy this file to "db.properties" in the same folder (src/) and fill in
-# your own local MySQL credentials. db.properties is listed in .gitignore
-# and must never be committed with real values.
-
 db.url=jdbc:mysql://localhost:3306/games?serverTimezone=UTC
 db.user=your_mysql_username
 db.password=your_mysql_password
