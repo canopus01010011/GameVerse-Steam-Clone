@@ -2,7 +2,6 @@ package application;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -51,7 +50,7 @@ public class PurchaseHistoryController {
             WHERE p.UserID = ?
             """;
 
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Games", "root", "souheil.2005");
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setInt(1, userId);
@@ -70,18 +69,6 @@ public class PurchaseHistoryController {
             dateCol.setCellValueFactory(new PropertyValueFactory<>("purchaseDate"));
 
             purchaseTable.setItems(purchases);
-           /* purchaseTable.setRowFactory(tv -> {
-                TableRow<Purchase> row = new TableRow<>();
-                row.setStyle("-fx-opacity: 0;");
-                Timeline fade = new Timeline(
-                    new KeyFrame(Duration.seconds(0.1), new KeyValue(row.opacityProperty(), 1))
-                );
-                row.itemProperty().addListener((obs, oldItem, newItem) -> {
-                    if (newItem != null) fade.playFromStart();
-                });
-                return row;
-            });
-*/
 
         } catch (SQLException e) {
             e.printStackTrace();
