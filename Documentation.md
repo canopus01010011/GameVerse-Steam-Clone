@@ -109,21 +109,3 @@ A couple of things worth knowing if you extend the schema:
 String css = this.getClass().getResource("application.css").toExternalForm();
 scene.getStylesheets().add(css);
 ```
-
-## 5. Known limitations
-
-- No session/auth token — `currentUserId` is just passed around as a plain int between controllers. Fine for a single local desktop app; not something to carry into a networked version.
-- Passwords are neither hashed nor salted.
-- Every controller opens and closes its own JDBC connection rather than sharing a pool — fine at this scale, but won't hold up under concurrent access.
-- `bin/` (compiled output) is currently tracked alongside `src/` — normally this would be excluded via `.gitignore`.
-- Two duplicate DB-connection helper snippets exist (`DBConnection.java` and the ad hoc `test.java`) — only one should remain long-term.
-
-## 6. Suggested refactors
-
-If this project keeps growing, the next real milestones are:
-
-1. **Extract a DAO/repository layer** (`UserRepository`, `GameRepository`, `PurchaseRepository`) so controllers stop talking to SQL directly.
-2. **Centralize configuration** — pull host/user/password out of source into an external, git-ignored properties file, loaded once by `DBConnection`.
-3. **Hash passwords** with BCrypt (or Argon2) at signup and verify with a hash comparison at login, instead of storing/matching plain text.
-4. **Connection pooling** (e.g. HikariCP) instead of a fresh `DriverManager.getConnection()` per call.
-5. **Clean up unique constraints** on `Firstname`/`Lastname`.
