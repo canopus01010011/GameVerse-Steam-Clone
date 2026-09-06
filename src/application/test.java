@@ -1,27 +1,20 @@
 package application;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+
+/**
+ * Quick manual connectivity check — run this to confirm db.properties
+ * is set up correctly before launching the full JavaFX app.
+ */
 public class test {
-	  private static final String URL = "jdbc:mysql://localhost:3306/games?serverTimezone=UTC";
-	    private static final String USER = "root"; 
-	    private static final String PASSWORD = "souheil.2005";
 
-	    public static Connection getConnection() {
-	        try {
-	            System.out.println("Trying to connect...");
-	            Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-	            System.out.println("Connection successful!");
-	            return conn;
-	        } catch (SQLException e) {
-	            System.out.println("Connection failed!");
-	            e.printStackTrace();
-	            return null;
-	        }
-	    }
-
-	    public static void main(String[] args) {
-	        getConnection();
-	    }
+    public static void main(String[] args) {
+        System.out.println("Trying to connect...");
+        try (Connection conn = DBConnection.getConnection()) {
+            System.out.println("Connection successful!");
+        } catch (Exception e) {
+            System.out.println("Connection failed!");
+            e.printStackTrace();
+        }
+    }
 }
