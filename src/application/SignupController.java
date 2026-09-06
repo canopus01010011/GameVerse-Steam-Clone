@@ -3,7 +3,6 @@ package application;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +19,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -125,7 +123,7 @@ public class SignupController {
 	    String sql = "INSERT INTO users (Username, Firstname, Lastname, Email, PasswordHash, birthdate, phone_number) " +
 	                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-	    try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Games", "root", "souheil.2005");
+	    try (Connection conn = DBConnection.getConnection();
 	    		PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
 	        stmt.setString(1, username);
@@ -158,22 +156,11 @@ public class SignupController {
 	        	}
 	        	
 	            System.out.println("User registered successfully!");
-	            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ProfilScene.fxml"));
-				root = loader.load();
-		    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		    scene = new Scene(root);
-		    String css = this.getClass().getResource("application.css").toExternalForm();
-		    scene.getStylesheets().add(css);
-		    
-		    stage.setScene(scene);
-            stage.getIcons().add(new Image(getClass().getResource("/images/icon.jpg").toExternalForm()));
-            stage.setResizable(false);
-            stage.centerOnScreen();
-		    stage.show();
 	        }
 
 	    } catch (SQLException e) {
 	        e.printStackTrace();
+	        showAlert(Alert.AlertType.ERROR, "Database Error", "Could not create your account. Please try again.");
 	    }
 	}
 	
@@ -186,7 +173,7 @@ public class SignupController {
 	    private void loadUserInfo() {
 	        String query = "SELECT Username, Firstname, Lastname, Email, phone_number, birthdate, CreatedAt FROM users WHERE UserID = ?";
 
-	        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Games", "root", "souheil.2005");
+	        try (Connection conn = DBConnection.getConnection();
 	             PreparedStatement stmt = conn.prepareStatement(query)) {
 
 	            stmt.setInt(1, currentUserId);
@@ -212,5 +199,3 @@ public class SignupController {
 	        }
 	    }
 	}
-
-
