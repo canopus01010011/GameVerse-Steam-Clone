@@ -2,7 +2,6 @@ package application;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -75,21 +74,17 @@ public class Scenecontroller{
 
 		private int authenticateUser(String username, String password) {
 		    int userId = -1;
-		    try {
-		        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Games", "root", "souheil.2005");
+		    try (Connection conn = DBConnection.getConnection()) {
 		        String sql = "SELECT UserID FROM Users WHERE Username = ? AND PasswordHash = ?";
-		        PreparedStatement stmt = conn.prepareStatement(sql);
-		        stmt.setString(1, username);
-		        stmt.setString(2, password);
-		        ResultSet rs = stmt.executeQuery();
+		        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+		            stmt.setString(1, username);
+		            stmt.setString(2, password);
+		            ResultSet rs = stmt.executeQuery();
 
-		        if (rs.next()) {
-		            userId = rs.getInt("UserID");
+		            if (rs.next()) {
+		                userId = rs.getInt("UserID");
+		            }
 		        }
-
-		        rs.close();
-		        stmt.close();
-		        conn.close();
 		    } catch (Exception e) {
 		        e.printStackTrace();
 		    }
