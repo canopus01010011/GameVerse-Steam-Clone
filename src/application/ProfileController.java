@@ -22,8 +22,6 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-import javax.print.DocFlavor.URL;
-
 public class ProfileController {
 	private Stage stage;
 	private Scene scene ;
@@ -130,7 +128,7 @@ public class ProfileController {
 	    private void loadUserInfo() {
 	        String query = "SELECT Username, Firstname, Lastname, Email, phone_number, birthdate, CreatedAt FROM users WHERE UserID = ?";
 
-	        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Games", "root", "souheil.2005");
+	        try (Connection conn = DBConnection.getConnection();
 	             PreparedStatement stmt = conn.prepareStatement(query)) {
 
 	            stmt.setInt(1, currentUserId);
@@ -187,7 +185,7 @@ public class ProfileController {
 	        if (confirmDialog.showAndWait().get() == ButtonType.OK) {
 	            String query = "DELETE FROM users WHERE UserID = ?";
 
-	            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Games", "root", "souheil.2005");
+	            try (Connection conn = DBConnection.getConnection();
 	                 PreparedStatement stmt = conn.prepareStatement(query)) {
 
 	                stmt.setInt(1, currentUserId);
