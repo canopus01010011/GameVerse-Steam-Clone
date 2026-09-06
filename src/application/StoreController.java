@@ -2,7 +2,6 @@ package application;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -48,7 +47,7 @@ public class StoreController {
 	    private void loadGames() {
 	        gameItems.clear();
 
-	        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Games", "root", "souheil.2005");
+	        try (Connection conn = DBConnection.getConnection();
 	             Statement stmt = conn.createStatement();
 	             ResultSet rs = stmt.executeQuery("SELECT * FROM games")) {
 
@@ -106,7 +105,7 @@ public class StoreController {
 	    private void loadCategories() {
 	        ObservableList<String> categories = FXCollections.observableArrayList();
 	        categories.add("All Categories");
-	        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Games", "root", "souheil.2005");
+	        try (Connection conn = DBConnection.getConnection();
 	             Statement stmt = conn.createStatement();
 	             ResultSet rs = stmt.executeQuery("SELECT DISTINCT Category FROM games")) {
 
@@ -130,7 +129,7 @@ public class StoreController {
 	            return;
 	        }
 
-	        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Games", "root", "souheil.2005")) {
+	        try (Connection conn = DBConnection.getConnection()) {
 
 	            String checkQuery = "SELECT * FROM purchases WHERE UserID = ? AND GameID = ?";
 	            try (PreparedStatement checkStmt = conn.prepareStatement(checkQuery)) {
@@ -176,7 +175,7 @@ public class StoreController {
 	    	        sql += " AND Category = ?";
 	    	    }
 
-	    	    try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Games", "root", "souheil.2005");
+	    	    try (Connection conn = DBConnection.getConnection();
 	    	         PreparedStatement stmt = conn.prepareStatement(sql)) {
 
 	    	        stmt.setString(1, "%" + keyword + "%");
