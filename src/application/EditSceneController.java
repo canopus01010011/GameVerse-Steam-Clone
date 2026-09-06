@@ -2,7 +2,6 @@ package application;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,7 +37,7 @@ public class EditSceneController {
     public void initializeUserInfo(int userID) {
         this.currentUserId = userID;
 
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Games", "root", "souheil.2005");
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE UserID = ?")) {
 
             stmt.setInt(1, userID);
@@ -62,7 +61,7 @@ public class EditSceneController {
 
     @FXML
     private void handleUpdateProfile(ActionEvent event) throws IOException {
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Games", "root", "souheil.2005");
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(
                      "UPDATE users SET Firstname=?, Lastname=?, Username=?, Email=?, phone_number=?, PasswordHash=? WHERE UserID=?")) {
 
